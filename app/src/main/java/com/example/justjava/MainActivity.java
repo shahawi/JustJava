@@ -15,7 +15,7 @@ import java.text.NumberFormat;
  */
 public class MainActivity extends AppCompatActivity {
     String Whipped = "";
-
+    int price = 5;
     int number = 0;
 
     @Override
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         write();
 
-        displayPrice("That will be ", number * 5, "Total   ", "\n", Whipped, "\n Thank you");
+        displayPrice("That will be ", number * price, "Total   ", "\n", Whipped, "\n Thank you");
     }
 
     public void addValue(View view) {
@@ -58,8 +58,11 @@ public class MainActivity extends AppCompatActivity {
         Boolean checked = ((CheckBox) view).isChecked();
         if (checked) {
             Whipped = "Topping: Whipped cream";
+            if (!(price > 5))
+                price = price + 5;
         } else {
             Whipped = "";
+            price = 5;
         }
     }
 
