@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     int price = 5;
     int number = 0;
     String nom = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,10 +38,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addValue(View view) {
-        number++;
+        while (number < 100)
 
-
-        display(number);
+        {
+            number++;
+            display(number);
+            return;
+        }
+        Toast trest = new Toast(this.getApplicationContext());
+        Toast.makeText(this.getApplicationContext(), "You are ordering too much", Toast.LENGTH_LONG);
+        trest.show();
     }
 
     public void minusValue(View view) {
@@ -94,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         EditText Name = (EditText) findViewById(R.id.editText);
         nom = Name.getText().toString();
     }
+
     public void write()
 
     {
