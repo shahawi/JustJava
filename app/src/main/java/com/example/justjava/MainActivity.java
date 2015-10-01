@@ -38,10 +38,11 @@ public class MainActivity extends AppCompatActivity {
         displayPrice(nom + "\n", "\n That will be ", number * price, "Total   ", "\n", Whipped, "\n Thank you");
 
         Intent arw = new Intent(Intent.ACTION_SENDTO);
-        arw.setType("text/html");
+        arw.setType("text/plain");
         arw.putExtra(Intent.EXTRA_EMAIL, "shahawi273@hotmail.com");
         arw.putExtra(Intent.EXTRA_SUBJECT, "Testing my app");
         arw.putExtra(Intent.EXTRA_TEXT, "Too much info");
+        Intent chooser = Intent.createChooser(arw, "Send Email");
         if (arw.resolveActivity(getPackageManager()) != null) {
             startActivity(arw);
         }
