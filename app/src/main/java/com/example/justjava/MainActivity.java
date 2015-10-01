@@ -17,12 +17,12 @@ public class MainActivity extends AppCompatActivity {
     String Whipped = "";
     int price = 5;
     int number = 0;
-
+    String nom = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        displayPrice("", 0, "", "\n", Whipped, "");
+        displayPrice(nom, "", 0, "", "\n", Whipped, "");
     }
 
     /**
@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     public void submitOrder(View view) {
 
         write();
-
-        displayPrice("That will be ", number * price, "Total   ", "\n", Whipped, "\n Thank you");
+        addName(view);
+        displayPrice(nom + "\n", "\n That will be ", number * price, "Total   ", "\n", Whipped, "\n Thank you");
     }
 
     public void addValue(View view) {
@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method displays the given price on the screen.
      */
-    private void displayPrice(String ee, int number, String aa, String bb, String dd, String cc) {
+    private void displayPrice(String uu, String ee, int number, String aa, String bb, String dd, String cc) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(ee + aa + "  " + NumberFormat.getCurrencyInstance().format(number) + bb + dd + cc);
+        priceTextView.setText(nom + ee + aa + "  " + NumberFormat.getCurrencyInstance().format(number) + bb + dd + cc);
     }
 
     /**
@@ -89,6 +89,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void addName(View view) {
+
+        EditText Name = (EditText) findViewById(R.id.editText);
+        nom = Name.getText().toString();
+    }
     public void write()
 
     {
