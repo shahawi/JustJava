@@ -1,5 +1,6 @@
 package com.example.justjava;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -35,6 +36,15 @@ public class MainActivity extends AppCompatActivity {
         write();
         addName(view);
         displayPrice(nom + "\n", "\n That will be ", number * price, "Total   ", "\n", Whipped, "\n Thank you");
+
+        Intent arw = new Intent(Intent.ACTION_SENDTO);
+        arw.setType("text/html");
+        arw.putExtra(Intent.EXTRA_EMAIL, "shahawi273@hotmail.com");
+        arw.putExtra(Intent.EXTRA_SUBJECT, "Testing my app");
+        arw.putExtra(Intent.EXTRA_TEXT, "Too much info");
+        if (arw.resolveActivity(getPackageManager()) != null) {
+            startActivity(arw);
+        }
     }
 
     public void addValue(View view) {
@@ -45,8 +55,7 @@ public class MainActivity extends AppCompatActivity {
             display(number);
             return;
         }
-        Toast trest = new Toast(this.getApplicationContext());
-        Toast.makeText(this.getApplicationContext(), "You are ordering too much", Toast.LENGTH_LONG);
+        Toast trest = Toast.makeText(this.getApplicationContext(), "You are ordering too much", Toast.LENGTH_LONG);
         trest.show();
     }
 
