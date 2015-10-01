@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         addName(view);
         displayPrice(nom + "\n", "\n That will be ", number * price, "Total   ", "\n", Whipped, "\n Thank you");
 
-        Intent arw = new Intent(Intent.ACTION_SENDTO);
+        Intent arw = new Intent(Intent.ACTION_SEND);
         arw.setType("text/plain");
         arw.putExtra(Intent.EXTRA_EMAIL, "shahawi273@hotmail.com");
         arw.putExtra(Intent.EXTRA_SUBJECT, "Testing my app");
