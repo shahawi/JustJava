@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
         Intent arw = new Intent(Intent.ACTION_SENDTO);
         arw.setData(Uri.parse("mailto:"));
-        arw.setType("text/plain");
         arw.putExtra(Intent.EXTRA_EMAIL, new String[]{"mailto:shahawi273@hotmail.com"});
         arw.putExtra(Intent.EXTRA_SUBJECT, "Order Summary");
         arw.putExtra(Intent.EXTRA_TEXT, fer);
