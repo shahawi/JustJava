@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     int price = 5;
     int number = 0;
     String nom = "";
-
+    String fer = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         Intent arw = new Intent(Intent.ACTION_SEND);
         arw.setType("text/plain");
         arw.putExtra(Intent.EXTRA_EMAIL, "emailaddress@shahawi273@hotmail.com");
-        arw.putExtra(Intent.EXTRA_SUBJECT, "Testing my app");
-        arw.putExtra(Intent.EXTRA_TEXT, "Too much info");
+        arw.putExtra(Intent.EXTRA_SUBJECT, "Order Summary");
+        arw.putExtra(Intent.EXTRA_TEXT, fer);
 
         if (arw.resolveActivity(getPackageManager()) != null) {
             startActivity(Intent.createChooser(arw, "Send Email"));
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void displayPrice(String uu, String ee, int number, String aa, String bb, String dd, String cc) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(nom + ee + aa + "  " + NumberFormat.getCurrencyInstance().format(number) + bb + dd + cc);
+        fer = (nom + ee + aa + "  " + NumberFormat.getCurrencyInstance().format(number) + bb + dd + cc);
     }
 
     /**
