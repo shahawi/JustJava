@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent arw = new Intent(Intent.ACTION_SEND);
         arw.setType("text/plain");
-        arw.putExtra(Intent.EXTRA_EMAIL, "emailaddress@shahawi273@hotmail.com");
+        arw.putExtra(Intent.EXTRA_EMAIL, "shahawi273@gmail.com");
         arw.putExtra(Intent.EXTRA_SUBJECT, "Order Summary");
         arw.putExtra(Intent.EXTRA_TEXT, fer);
 
