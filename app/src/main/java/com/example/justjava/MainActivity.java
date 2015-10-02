@@ -1,6 +1,7 @@
 package com.example.justjava;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -37,9 +38,10 @@ public class MainActivity extends AppCompatActivity {
         addName(view);
         displayPrice(nom + "\n", "\n That will be ", number * price, "Total   ", "\n", Whipped, "\n Thank you");
 
-        Intent arw = new Intent(Intent.ACTION_SEND);
+        Intent arw = new Intent(Intent.ACTION_SENDTO);
+        arw.setData(Uri.parse("mailto:"));
         arw.setType("text/plain");
-        arw.putExtra(Intent.EXTRA_EMAIL, "shahawi273@gmail.com");
+        arw.putExtra(Intent.EXTRA_EMAIL, new String[]{"mailto:shahawi273@hotmail.com"});
         arw.putExtra(Intent.EXTRA_SUBJECT, "Order Summary");
         arw.putExtra(Intent.EXTRA_TEXT, fer);
 
